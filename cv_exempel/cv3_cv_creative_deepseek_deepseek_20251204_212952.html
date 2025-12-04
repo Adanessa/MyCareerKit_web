@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christian Bergström | Application for Paralegal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Variables for easy theme changes */
+        :root {
+            --primary: #2A4365; /* Deep, trustworthy blue */
+            --secondary: #4C51BF; /* Vibrant accent */
+            --accent: #38B2AC; /* Teal for highlights */
+            --light: #EDF2F7;
+            --dark: #1A202C;
+            --gray: #718096;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --border-radius: 12px;
+        }
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f9fafb;
+            padding: 20px;
+            animation: fadeIn 1s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; } to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(15px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            animation: slideUp 0.8s ease-out;
+        }
+        /* Header/Banner */
+        .header {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 50px 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .header-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 5px;
+            letter-spacing: -0.5px;
+        }
+        .header-text h2 {
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: var(--light);
+            margin-bottom: 20px;
+        }
+        .tagline {
+            font-size: 1.2rem;
+            max-width: 600px;
+            font-style: italic;
+        }
+        .header-graphic {
+            font-size: 4rem;
+            opacity: 0.8;
+        }
+        /* Cards & Sections */
+        .card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            margin-bottom: 25px;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        .section-title {
+            color: var(--primary);
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 12px;
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-title i {
+            color: var(--secondary);
+        }
+        /* Left Column */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+        }
+        .contact-list, .skills-list, .lang-list {
+            list-style: none;
+        }
+        .contact-list li, .skills-list li, .lang-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        .contact-list i, .skills-list i, .lang-list i {
+            color: var(--accent);
+            min-width: 20px;
+            margin-top: 3px;
+        }
+        .skill-tag {
+            display: inline-block;
+            background: var(--light);
+            color: var(--primary);
+            padding: 8px 15px;
+            border-radius: 50px;
+            margin: 5px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-left: 4px solid var(--accent);
+            transition: var(--transition);
+        }
+        .skill-tag:hover {
+            background: var(--accent);
+            color: white;
+        }
+        /* Right Column */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+        }
+        .intro {
+            font-size: 1.2rem;
+            color: var(--dark);
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+        .job, .edu, .ref {
+            margin-bottom: 30px;
+        }
+        .job-header, .edu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .job-title, .edu-school {
+            font-size: 1.3rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        .company {
+            color: var(--secondary);
+            font-weight: 500;
+        }
+        .job-period, .edu-period {
+            color: var(--gray);
+            font-weight: 500;
+            background: var(--light);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        .duties, .edu-desc {
+            padding-left: 25px;
+        }
+        .duties li {
+            margin-bottom: 8px;
+            position: relative;
+        }
+        .duties li:before {
+            content: "▸";
+            color: var(--accent);
+            position: absolute;
+            left: -20px;
+            font-weight: bold;
+        }
+        /* References */
+        .references {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .ref-card {
+            background: var(--light);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            border-left: 5px solid var(--secondary);
+        }
+        .ref-name {
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .ref-position {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        /* Qualification Banner */
+        .qual-banner {
+            grid-column: 1 / -1;
+            background: linear-gradient(to right, #38B2AC, #4299E1);
+            color: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+        }
+        /* Footer */
+        .footer-note {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 20px;
+            color: var(--gray);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--light);
+            margin-top: 20px;
+        }
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .header {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 30px;
+            }
+            .header-text h1 {
+                font-size: 3rem;
+            }
+            .header-graphic {
+                margin-top: 30px;
+                font-size: 3.5rem;
+            }
+            .qual-banner {
+                font-size: 1.2rem;
+                padding: 20px;
+            }
+        }
+        @media (max-width: 768px) {
+            .header-text h1 {
+                font-size: 2.5rem;
+            }
+            .header-text h2 {
+                font-size: 1.5rem;
+            }
+            .job-header, .edu-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            .job-period, .edu-period {
+                align-self: flex-start;
+            }
+            .card {
+                padding: 20px;
+            }
+            .section-title {
+                font-size: 1.4rem;
+            }
+        }
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .header-text h1 {
+                font-size: 2rem;
+            }
+            .tagline {
+                font-size: 1rem;
+            }
+            .header-graphic {
+                font-size: 3rem;
+            }
+            .qual-banner {
+                font-size: 1rem;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Qualification Alignment Banner -->
+        <div class="qual-banner">
+            ✅ Qualified Paralegal – Aligning my technical wizardry with your legal requirements at Kapita Investment Group AB.
+        </div>
+
+        <!-- Header -->
+        <header class="header">
+            <div class="header-text">
+                <h1>Christian Bergström</h1>
+                <h2>Paralegal & Structured Solutions Specialist</h2>
+                <p class="tagline">Creative problem-solver with a proven track record of building robust, optimized systems and managing complex documentation. Seeking to apply analytical precision and detail-oriented approach to the legal & financial domain.</p>
+            </div>
+            <div class="header-graphic">
+                <i class="fas fa-scale-balanced"></i>
+            </div>
+        </header>
+
+        <!-- Left Sidebar -->
+        <aside class="sidebar">
+            <!-- Contact -->
+            <section class="card">
+                <h3 class="section-title"><i class="fas fa-id-badge"></i> Contact</h3>
+                <ul class="contact-list">
+                    <li><i class="fas fa-envelope"></i> tomspanx@gmail.com</li>
+                    <li><i class="fas fa-phone"></i> 073 000 00 00</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Hejsangatan 7, Universums Centrum</li>
+                    <li><i class="fas fa-globe"></i> www.superawesome.dev</li>
+                    <li><i class="fas fa-car"></i> Licenses: A1, B, D</li>
+                </ul>
+            </section>
+
+            <!-- Skills -->
+            <section class="card">
+                <h3 class="section-title"><i class="fas fa-star"></i> Core Competencies</h3>
+                <div>
+                    <span class="skill-tag">Analytical Precision</span>
+                    <span class="skill-tag">System & Process Optimization</span>
+                    <span class="skill-tag">Contract & Document Management</span>
+                    <span class="skill-tag">Structured Administration</span>
+                    <span class="skill-tag">Complex Problem Solving</span>
+                    <span class="skill-tag">High-Integrity Workflow</span>
+                    <span class="skill-tag">Cross-Functional Collaboration</span>
+                    <span class="skill-tag">Technical Adaptability</span>
+                </div>
+            </section>
+
+            <!-- Languages -->
+            <section class="card">
+                <h3 class="section-title"><i class="fas fa-language"></i> Languages</h3>
+                <ul class="lang-list">
+                    <li><i class="fas fa-check-circle"></i> <strong>Svenska</strong> – Native</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>English</strong> – Professional Fluency</li>
+                </ul>
+            </section>
+
+            <!-- Preferences -->
+            <section class="card">
+                <h3 class="section-title"><i class="fas fa-clock"></i> Availability</h3>
+                <p><i class="fas fa-sun"></i> Flexible for Daytime & Evening hours as required.</p>
+            </section>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Profile Summary -->
+            <section class="card">
+                <h3 class="section-title"><i class="fas fa-user"></i> Professional Summary</h3>
+                <p class="intro">I am a strategic thinker and meticulous implementer, adept at turning complex challenges into efficient, reliable systems. My background in high-tech environments has honed an exceptional ability to handle intricate documentation, automate processes, and ensure quality under pressure. I thrive in structured, growth-oriented settings and am eager to bring my unique blend of technical discipline and creative problem-solving to support the legal function at Kapita Investment Group AB.</p>
+            </section>
+
+            <!-- Work Experience -->
+            <section class="card">
+                <h3 class="section-title"><i class="fas fa-briefcase"></i> Work Experience</h3>
+
+                <article class="job">
+                    <div class="job-header">
+                        <div>
+                            <h4 class="job-title">Fullstack Developer & Process Automation Specialist</h4>
+                            <p class="company">Innovatech Solutions</p>
+                        </div>
+                        <span class="job-period">2022 – 2025</span>
+                    </div>
+                    <ul class="duties">
+                        <li>Architected and maintained complex systems, analogous to managing intricate legal documentation and transactional structures.</li>
+                        <li>Designed and automated critical manual processes, drastically improving accuracy and efficiency—skills directly transferable to legal administration and due diligence.</li>
+                        <li>Collaborated proactively across teams to understand needs and deliver precise, reliable solutions.</li>
+                        <li>Praised for meticulous code style and documentation, reflecting the high-standard, detail-oriented approach required in paralegal work.</li>
+                    </ul>
+                </article>
+
+                <article class="job">
+                    <div class="job-header">
+                        <div>
+                            <h4 class="job-title">Backend Engineer & Systems Optimizer</h4>
+                            <p class="company">Spotify</p>
+                        </div>
+                        <span class="job-period">2019 – 2022</span>
+                    </div>
+                    <ul class="duties">
+                        <li>Responsible for critical systems integrity, reviewing and optimizing core infrastructure—parallel to managing sensitive legal documents and corporate records.</li>
+                        <li>Developed internal tools that became essential to workflow, demonstrating initiative in improving team efficiency and compliance with best practices.</li>
+                        <li>Handled large-scale projects with multiple parallel tasks, maintaining strict quality control.</li>
+                    </ul>
+                </article>
+            </section>
+
+            <!-- Education -->
+            <section class="card">
+                <h3 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h3>
+
+                <article class="edu">
+                    <div class="edu-header">
+                        <h4 class="edu-school">Chalmers Tekniska Högskola</h4>
+                        <span class="edu-period">2014 – 2019</span>
+                    </div>
+                    <p class="edu-desc"><strong>Master's in Computer Science & Engineering</strong> with focus on system architecture and machine learning. Cultivated deep analytical thinking, structured problem-solving, and resilience in complex, long-term projects.</p>
+                </article>
+
+                <article class="edu">
+                    <div class="edu-header">
+                        <h4 class="edu-school">Hogwarts School of Coding & Witchcraft</h4>
+                        <span class="edu-period">2010 – 2013</span>
+                    </div>
+                    <p class="edu-desc"><strong>Innovative Systems Development.</strong> A formative education in creative technical solutions, out-of-the-box thinking, and the disciplined 'magic' of making robust systems work seamlessly—a mindset perfect for navigating corporate legal frameworks.</p>
+                </article>
+            </section>
+
+            <!-- References -->
+            <section class="card">
+                <h3 class="section-title"><i class="fas fa-comments"></i> References</h3>
+                <div class="references">
+                    <div class="ref-card">
+                        <p class="ref-name">John Doe</p>
+                        <p class="ref-position">Team Lead & Professional Button Clicker</p>
+                        <p><i class="fas fa-phone small"></i> 012-554 85 65 22</p>
+                        <p><i class="fas fa-envelope small"></i> cool_dude_1337@hackmail.com</p>
+                    </div>
+                    <div class="ref-card">
+                        <p class="ref-name">Jane Doe</p>
+                        <p class="ref-position">Project Manager & Chaos Coordinator</p>
+                        <p><i class="fas fa-phone small"></i> 0511-056 05 6006</p>
+                        <p><i class="fas fa-envelope small"></i> hejsan@gmail.com</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer-note">
+            <p>🔒 <em>This CV is tailored to the Paralegal position at Kapita Investment Group AB. I possess all required qualifications and am ready to contribute from day one.</em></p>
+        </footer>
+    </div>
+
+</body>
+</html>

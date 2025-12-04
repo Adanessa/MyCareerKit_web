@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyCareerKit - Smart jobbsökning</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-briefcase logo-icon"></i>
+                MyCareerKit
+            </a>
+            
+            <button class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Hem</a></li>
+                <li><a href="#features" class="nav-link">Så funkar det</a></li>
+                <li><a href="#inspiration" class="nav-link">Inspiration</a></li>
+                <li><a href="#about" class="nav-link">Om projektet</a></li>
+                <li><a href="#contact" class="nav-link">Kontakt</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1>Jobbsökning utan huvudvärk</h1>
+                <p class="hero-subtitle">
+                    MyCareerKit samlar allt du behöver på ett ställe: sök jobb, skapa CV, generera personliga brev och skicka ansökningar.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#inspiration" class="btn">
+                        <i class="fas fa-eye"></i> Se exempel
+                    </a>
+                    <a href="#features" class="btn btn-outline">
+                        <i class="fas fa-play-circle"></i> Hur det funkar
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="app-preview">
+                    <div class="app-header">
+                        <div class="app-dot"></div>
+                        <div class="app-dot"></div>
+                        <div class="app-dot"></div>
+                    </div>
+                    <div class="app-content">
+                        <div class="app-feature" style="animation-delay: 0s;"></div>
+                        <div class="app-feature" style="animation-delay: 0.5s;"></div>
+                        <div class="app-feature" style="animation-delay: 1s;"></div>
+                        <div class="app-feature" style="animation-delay: 1.5s;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Så här förenklar vi jobbsökandet</h2>
+                <p>Alla verktyg du behöver i en enda app</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Smart jobbsök</h3>
+                    <p>Samlar jobb från flera källor på ett ställe. Med stöd för Arbetsförmedlingens API och utbyggbart för fler källor.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI-genererade brev</h3>
+                    <p>Skapa skräddarsydda personliga brev baserat på jobbbeskrivning och din profil. Välj mellan olika stilar.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <h3>CV-design i många stilar</h3>
+                    <p>Från professionella till kreativa teman. Appen kan generera CV:n som passar just ditt yrke och personlighet.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-paper-plane"></i>
+                    </div>
+                    <h3>Direktansökan via e-post</h3>
+                    <p>Förifyllda e-postutkast – fyller automatiskt i mottagare, ämne och bifogar dina dokument så du bara behöver granska och skicka..</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Flexibel AI-integration</h3>
+                    <p>Stöd för både lokala AI-modeller (för integritet) och moln-API:er (för snabbhet).</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Favoritlista och uppföljning</h3>
+                    <p>Håll koll på alla jobb du är intresserad av. Se vilka du ansökt till och följ upp.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inspiration Preview -->
+    <section class="inspiration-preview" id="inspiration">
+        <div class="container">
+            <div class="section-header">
+                <h2>Inspiration</h2>
+                <p>Några exempel på vad appen kan generera</p>
+            </div>
+            
+            <div class="preview-grid">
+                <div class="preview-item">
+                    <div class="preview-image">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="preview-content">
+                        <h3>Professionellt CV</h3>
+                        <p>Klassisk design för traditionella branscher.</p>
+                    </div>
+                </div>
+                
+                <div class="preview-item">
+                    <div class="preview-image">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <div class="preview-content">
+                        <h3>Kreativt tema</h3>
+                        <p>Färgglada layout för kreativa yrken.</p>
+                    </div>
+                </div>
+                
+                <div class="preview-item">
+                    <div class="preview-image">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="preview-content">
+                        <h3>Teknisk layout</h3>
+                        <p>Modern design för utvecklare och tech.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="center-btn">
+                <a href="inspiration.html" class="btn">
+                    <i class="fas fa-images"></i> Se hela galleriet
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>Om projektet</h2>
+                <p>Tekniken bakom MyCareerKit</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Byggt för effektivitet och flexibilitet</h3>
+                    <p>MyCareerKit är ett skräddarsytt verktyg för att förenkla jobbsökandet. Istället för att hoppa mellan tio olika sidor och program samlas allt på ett ställe.</p>
+                    <p>Appen är byggd med Python och Qt för ett snabbt och stabil gränssnitt som fungerar på både Windows och Mac.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Qt/PySide6</span>
+                        <span class="tech-tag">Arbetsförmedlingens API</span>
+                        <span class="tech-tag">LLM-integration</span>
+                        <span class="tech-tag">Gmail API</span>
+                        <span class="tech-tag">HTML/CSS-generering</span>
+                    </div>
+                </div>
+                
+                <div class="about-visual">
+                    <div class="app-preview" style="height: 300px; animation: float 8s ease-in-out infinite;">
+                        <div class="app-header">
+                            <div class="app-dot"></div>
+                            <div class="app-dot"></div>
+                            <div class="app-dot"></div>
+                        </div>
+                        <div class="app-content">
+                            <div class="app-feature" style="height: 100%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2>Intresserad av att veta mer?</h2>
+                <p>MyCareerKit är ett personligt projekt som utvecklas kontinuerligt. Har du frågor eller idéer är du välkommen att höra av dig.</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>Kontakta mig via e-post</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-code-branch"></i>
+                        <span>Projektet är open-source och finns på GitHub</span>
+                    </div>
+                </div>
+                
+                <a href="mailto:tomspanx@gmail.com" class="btn">
+                    <i class="fas fa-paper-plane"></i> Skicka meddelande
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div>
+                    <h3>MyCareerKit</h3>
+                    <p style="color: #cbd5e1; margin-top: 1rem;">
+                        Ett smartare sätt att söka jobb.
+                    </p>
+                </div>
+                
+                <div>
+                    <h3>Länkar</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Hem</a></li>
+                        <li><a href="#features">Så funkar det</a></li>
+                        <li><a href="inspiration.html">Inspiration</a></li>
+                        <li><a href="#about">Om projektet</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3>Teknik</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Python</a></li>
+                        <li><a href="#">Qt/PySide6</a></li>
+                        <li><a href="#">AI-integration</a></li>
+                        <li><a href="#">API:er</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3>Kontakt</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:tomspanx@gmail.com">E-post</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 MyCareerKit. Ett personligt projekt i utveckling.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileToggle.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                
+                // Update active link
+                document.querySelectorAll('.nav-link').forEach(item => {
+                    item.classList.remove('active');
+                });
+                link.classList.add('active');
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animation to elements
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.feature-card, .preview-item, .about-text, .about-visual').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

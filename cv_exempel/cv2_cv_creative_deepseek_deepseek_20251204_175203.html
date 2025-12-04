@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcus Andersson - Bar & Kökschef</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Oswald:wght@400;500&family=Cinzel:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --main-dark: #1a0f00;
+            --main-light: #f8f0e3;
+            --accent-gold: #d4af37;
+            --accent-bronze: #8b6b3c;
+            --accent-wood: #6f4e37;
+            --accent-glass: #4a7a8c;
+            --accent-cherry: #aa3e2f;
+            --shadow: rgba(0, 0, 0, 0.25);
+            --spacing-sm: 0.75rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2.5rem;
+            --border-radius: 10px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--main-light);
+            color: var(--main-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 90% 10%, rgba(212, 175, 55, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 10% 90%, rgba(138, 107, 60, 0.05) 0%, transparent 20%);
+            padding-bottom: var(--spacing-lg);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes floatGlass {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(2deg); }
+        }
+
+        @keyframes pourLiquid {
+            0% { height: 0%; opacity: 0; }
+            100% { height: 70%; opacity: 0.9; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Header & Hero */
+        .hero {
+            background: linear-gradient(to right, var(--main-dark), var(--accent-wood));
+            color: var(--main-light);
+            padding: var(--spacing-lg) var(--spacing-md);
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+            margin-bottom: var(--spacing-lg);
+            box-shadow: 0 10px 30px var(--shadow);
+            position: relative;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cpath fill='%23d4af37' fill-opacity='0.1' d='M39.4,-40.1C51.5,-30.3,62.3,-15.2,61.6,-1C60.9,13.2,48.7,26.5,36.5,37.2C24.4,47.9,12.2,56,-1.4,57.5C-15,58.9,-30,53.7,-41.6,42.9C-53.2,32.2,-61.4,16.1,-60.8,0.6C-60.2,-14.9,-50.8,-29.7,-39.2,-39.5C-27.7,-49.3,-13.8,-54.1,0.5,-54.6C14.9,-55.1,29.7,-51.3,39.4,-40.1Z' transform='translate(100 100)'/%3E%3C/svg%3E");
+            opacity: 0.3;
+            animation: floatGlass 8s ease-in-out infinite;
+        }
+
+        .hero-text {
+            z-index: 1;
+        }
+
+        .hero-icons {
+            display: flex;
+            gap: var(--spacing-md);
+            z-index: 1;
+        }
+
+        .glass-icon {
+            width: 100px;
+            height: 120px;
+            position: relative;
+            background: rgba(255, 255, 255, 0.15);
+            border: 3px solid var(--accent-gold);
+            border-top: none;
+            border-radius: 0 0 20px 20px;
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+            animation: floatGlass 5s ease-in-out infinite;
+        }
+
+        .glass-icon::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 0%;
+            background: linear-gradient(to top, var(--accent-cherry), var(--accent-gold));
+            border-radius: 0 0 18px 18px;
+            animation: pourLiquid 2s 1s forwards ease-out;
+        }
+
+        .name {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.3rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px var(--shadow);
+            color: var(--accent-gold);
+        }
+
+        .title {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-bottom: var(--spacing-sm);
+            color: #f0e6d2;
+        }
+
+        .tagline {
+            font-size: 1.0rem;
+            max-width: 800px;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        /* Layout */
+        .cv-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+
+        section {
+            background: white;
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid var(--accent-gold);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        section h2 {
+            font-family: 'Cinzel', serif;
+            color: var(--accent-wood);
+            margin-bottom: var(--spacing-sm);
+            padding-bottom: 0.5rem;
+            border-bottom: 2px dashed var(--accent-bronze);
+            position: relative;
+        }
+
+        section h2 i {
+            margin-right: 10px;
+            color: var(--accent-gold);
+        }
+
+        /* Contact Info */
+        .contact-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .contact-item i {
+            color: var(--accent-gold);
+            background: var(--main-dark);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Skills & Lang */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, var(--main-dark), var(--accent-wood));
+            color: var(--main-light);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-tag::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .skill-tag:hover::before {
+            left: 100%;
+        }
+
+        .skill-tag:hover {
+            background: linear-gradient(135deg, var(--accent-wood), var(--accent-gold));
+            color: var(--main-dark);
+            transform: scale(1.05);
+        }
+
+        /* Experience & Education */
+        .timeline-item {
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 1px dotted var(--accent-bronze);
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .item-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            color: var(--main-dark);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .item-date {
+            background: var(--accent-glass);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        .item-desc {
+            margin-top: 0.5rem;
+            color: #555;
+        }
+
+        .item-desc ul {
+            padding-left: 1.2rem;
+        }
+
+        .item-desc li {
+            margin-bottom: 0.3rem;
+        }
+
+        /* Preferences */
+        .preference-highlight {
+            background: linear-gradient(to right, #f8f0e3, #f0e6d2);
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--accent-cherry);
+            margin-top: 0.75rem;
+            font-style: italic;
+        }
+
+        /* References */
+        .ref-card {
+            background: linear-gradient(135deg, #f8f0e3, #f5ebd8);
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--accent-bronze);
+        }
+
+        .ref-name {
+            font-weight: 600;
+            color: var(--main-dark);
+        }
+
+        .ref-position {
+            color: var(--accent-wood);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: var(--spacing-lg);
+            padding: var(--spacing-md);
+            color: var(--accent-wood);
+            font-size: 0.9rem;
+            border-top: 1px dashed var(--accent-bronze);
+        }
+
+        .beer-mug {
+            display: inline-block;
+            font-size: 1.3rem;
+            margin: 0 0.3rem;
+            animation: floatGlass 3s infinite ease-in-out;
+            animation-delay: calc(var(--i) * 0.5s);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: var(--spacing-md);
+            }
+
+            .glass-icon {
+                margin: 0 auto;
+            }
+
+            .name {
+                font-size: 2.5rem;
+            }
+
+            .contact-details {
+                grid-template-columns: 1fr;
+            }
+
+            .item-title {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .item-date {
+                align-self: flex-start;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .name {
+                font-size: 2rem;
+            }
+
+            .title {
+                font-size: 1.2rem;
+            }
+
+            .cv-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="hero">
+            <div class="hero-text">
+                <h1 class="name">MARCUS ANDERSSON</h1>
+                <h2 class="title">Bar & Kökschef med 10+ års erfarenhet</h2>
+                <p class="tagline">Expert på att skapa minnesvärda drinkar, leda team under högt tryck och leverera exceptionell gästservice. Passionerad för hantverket och detaljerna.</p>
+            </div>
+            <div class="hero-icons">
+                <div class="glass-icon"></div>
+            </div>
+        </header>
+
+        <main class="cv-content">
+            <section id="contact">
+                <h2><i class="fas fa-cocktail"></i> Kontakt</h2>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>marcus.andersson.prof@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>072 123 45 67</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-home"></i>
+                        <span>Kungsgatan 42, 111 35 Stockholm</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-globe"></i>
+                        <span>LinkedIn: linkedin.com/in/marcusandersson</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-car"></i>
+                        <span>Körkort: B</span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="summary">
+                <h2><i class="fas fa-star"></i> Profil</h2>
+                <p>Erfaren och driven bar- och kökschef med ett starkt ledarskap och beprövad erfarenhet från både högtempo restauranger och lyxiga cocktailbarer. Mitt fokus ligger på att utveckla team, optimera verksamheter och alltid leverera den högsta standarden av service och kvalitet. Jag trivs bäst i en dynamisk miljö där varje dag är en ny utmaning.</p>
+                <div class="preference-highlight">
+                    <i class="fas fa-quote-left"></i> Jag är en positiv lagspelare med en okuvlig arbetsmoral. Mitt mål är att varje gäst ska lämna oss med ett leende. <i class="fas fa-quote-right"></i>
+                </div>
+            </section>
+
+            <section id="experience">
+                <h2><i class="fas fa-briefcase"></i> Arbetslivserfarenhet</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="item-title">
+                            <span>Bar & Kökschef – TAK Stockholm</span>
+                            <span class="item-date">2020 - Nuvarande</span>
+                        </div>
+                        <div class="item-desc">
+                            <ul>
+                                <li>Fullt ansvar för bar- och köksverksamhet inklusive menyutveckling, personalplanering & ekonomi.</li>
+                                <li>Implementerade nya arbetsprocesser som ökade effektiviteten med 30%.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="item-title">
+                            <span>Barchef – Pharmarium Stockholm</span>
+                            <span class="item-date">2017 - 2020</span>
+                        </div>
+                        <div class="item-desc">
+                            <ul>
+                                <li>Ledde barteamet på en av Sveriges mest acklamerade cocktailbarer.</li>
+                                <li>Hanterade evenemang och privatbokningar för upp till 100 personer.</li>
+                                <li>Fick utmärkelsen "Bästa Cocktailbaren" av White Guide under min tid.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="skills">
+                <h2><i class="fas fa-tools"></i> Kompetenser</h2>
+                <div class="skills-grid">
+                    <span class="skill-tag">Barledning</span>
+                    <span class="skill-tag">Menyutveckling</span>
+                    <span class="skill-tag">Personalansvar</span>
+                    <span class="skill-tag">Ekonomihantering</span>
+                    <span class="skill-tag">Cocktailkunskap</span>
+                    <span class="skill-tag">Köksledning</span>
+                    <span class="skill-tag">Inventariehantering</span>
+                    <span class="skill-tag">Kundservice</span>
+                    <span class="skill-tag">Evenemangsplanering</span>
+                    <span class="skill-tag">Hygiencertifikat</span>
+                    <span class="skill-tag">Microsoft Office</span>
+                    <span class="skill-tag">POS-system</span>
+                </div>
+            </section>
+
+            <section id="education">
+                <h2><i class="fas fa-graduation-cap"></i> Utbildning</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="item-title">
+                            <span>Kockutbildning – Grillska Gymnasiet</span>
+                            <span class="item-date">2011 - 2014</span>
+                        </div>
+                        <div class="item-desc">
+                            <p>Komplett restaurangutbildning med inriktning kök.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="item-title">
+                            <span>Barista- & Bartenderkurs – STC Stockholm</span>
+                            <span class="item-date">2014</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="item-title">
+                            <span>Ledarskapsutveckling – Restaurangakademien</span>
+                            <span class="item-date">2019</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="references">
+                <h2><i class="fas fa-users"></i> Referenser</h2>
+                <div class="ref-card">
+                    <p class="ref-name">Elin Johansson</p>
+                    <p class="ref-position">Ägare, TAK Stockholm</p>
+                    <p>"Marcus är en exceptionell ledare. Hans förmåga att motivera sitt team och hantera komplexa operativa utmaningar har varit avgörande för vår framgång."</p>
+                    <p>Telefon: 070 987 65 43</p>
+                </div>
+                <div class="ref-card" style="margin-top: 1rem;">
+                    <p class="ref-name">David Larsson</p>
+                    <p class="ref-position">F.d. Manager, Pharmarium</p>
+                    <p>"En av de mest kreativa och professionella barchefer jag har jobbat med. Hans passion för dryckeshanterket smittar av sig på hela teamet."</p>
+                    <p>Telefon: 073 456 78 90</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Tack för att du tittar på mitt CV!
+            <div>
+                <span class="beer-mug" style="--i: 0;">🍸</span>
+                <span class="beer-mug" style="--i: 1;">🍹</span>
+                <span class="beer-mug" style="--i: 2;">🍺</span>
+                <span class="beer-mug" style="--i: 3;">🥃</span>
+            </div>
+            <p>© 2025 Marcus Andersson</p>
+        </footer>
+    </div>
+</body>
+</html>

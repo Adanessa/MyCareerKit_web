@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christian Bergström - Senior Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a472a;
+            --secondary: #2e8b57;
+            --accent: #8fbc8f;
+            --light: #f0f8f0;
+            --dark: #0d2615;
+            --gradient-primary: linear-gradient(135deg, #1a472a 0%, #2e8b57 100%);
+            --gradient-secondary: linear-gradient(135deg, #2e8b57 0%, #8fbc8f 100%);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --border-radius: 15px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--primary);
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            min-height: 100vh;
+            animation: fadeIn 1s ease;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%232e8b57' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.4;
+            z-index: -1;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .cv-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            animation: slideUp 0.8s ease;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 25px;
+            transition: var(--transition);
+            border-left: 5px solid var(--secondary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-secondary);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .profile-card {
+            background: var(--gradient-primary);
+            color: white;
+            text-align: center;
+            padding: 40px 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-card::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white' opacity='0.1'%3E%3Cpath d='M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 5.5V7H9V5.5L3 7V9L9 10.5V12L3 13.5V15.5L9 14V16L3 17.5V19.5L9 18V22H15V18L21 19.5V17.5L15 16V14L21 15.5V13.5L15 12V10.5L21 9Z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: bottom right;
+        }
+
+        .profile-name {
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .profile-title {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+        }
+
+        .contact-item i {
+            width: 20px;
+            color: var(--accent);
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light);
+            color: var(--primary);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--gradient-secondary);
+        }
+
+        .summary {
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .timeline-item {
+            margin-bottom: 25px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--secondary);
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .timeline-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .timeline-date {
+            color: var(--secondary);
+            font-weight: 500;
+        }
+
+        .duties-list {
+            list-style-type: none;
+        }
+
+        .duties-list li {
+            margin-bottom: 5px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .duties-list li::before {
+            content: '🌿';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: var(--light);
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            border: 1px solid #c8e6c9;
+        }
+
+        .skill-tag:hover {
+            background: var(--gradient-secondary);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .reference-item {
+            margin-bottom: 20px;
+        }
+
+        .reference-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .reference-position {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .accent-button {
+            background: var(--gradient-secondary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-block;
+            text-align: center;
+            margin-top: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .accent-button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .accent-button:hover::before {
+            left: 100%;
+        }
+
+        .accent-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 15px rgba(46, 139, 87, 0.3);
+        }
+
+        .leaf-decoration {
+            position: absolute;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .leaf-1 {
+            top: 10%;
+            right: 5%;
+            transform: rotate(45deg);
+            font-size: 5rem;
+        }
+
+        .leaf-2 {
+            bottom: 15%;
+            left: 3%;
+            transform: rotate(-15deg);
+            font-size: 4rem;
+        }
+
+        @media (max-width: 900px) {
+            .cv-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .timeline-header {
+                flex-direction: column;
+            }
+            
+            .profile-name {
+                font-size: 1.8rem;
+            }
+            
+            .leaf-decoration {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="leaf-decoration">🌿</div>
+    <div class="leaf-decoration leaf-1">🍃</div>
+    <div class="leaf-decoration leaf-2">🌱</div>
+    
+    <div class="container">
+        <div class="cv-grid">
+            <div class="sidebar">
+                <div class="profile-card">
+                    <h1 class="profile-name">Christian Bergström</h1>
+                    <div class="profile-title">Senior Developer</div>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>tomspanx@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>073-000 00 00</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Hejsangatan 7</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-globe"></i>
+                            <span>random.website.com</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2 class="section-title">Färdigheter</h2>
+                    <div class="skills-container">
+                        <div class="skill-tag">Problemlösning</div>
+                        <div class="skill-tag">Teamwork</div>
+                        <div class="skill-tag">Kreativitet</div>
+                        <div class="skill-tag">Analys</div>
+                        <div class="skill-tag">Anpassningsförmåga</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2 class="section-title">Språk</h2>
+                    <div class="skills-container">
+                        <div class="skill-tag">Svenska</div>
+                        <div class="skill-tag">Engelska</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2 class="section-title">Referenser</h2>
+                    <div class="reference-item">
+                        <div class="reference-name">John Doe</div>
+                        <div class="reference-position">Chef</div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>0712982365</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>john.doe@gmail.com</span>
+                        </div>
+                    </div>
+                    <div class="reference-item">
+                        <div class="reference-name">Jane Doe</div>
+                        <div class="reference-position">Chef</div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>012593541</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>jane.doe@hotmail.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-content">
+                <div class="card">
+                    <h2 class="section-title">Om Mig</h2>
+                    <p class="summary">Hej! Mitt namn är Christian Bergström och jag har gjort en grym app. Jag är passionerad av teknik och naturen, och ser fram emot att kombinera dessa två intressen i en roll på ert zoo. Med min bakgrund inom utveckling ser jag potentialen i att använda teknologi för att förbättra djurvård, besökarupplevelser och bevarandeinsatser.</p>
+                </div>
+
+                <div class="card">
+                    <h2 class="section-title">Erfarenhet</h2>
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <div class="timeline-title">Backend Developer, Spotify</div>
+                            <div class="timeline-date">2019-2022</div>
+                        </div>
+                        <ul class="duties-list">
+                            <li>Utvecklade och underhöll skalbara backend-system</li>
+                            <li>Samarbetade i tvärfunktionella team för att leverera funktioner i tid</li>
+                            <li>Optimera databasprestanda för miljontals användare</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <div class="timeline-title">Fullstack Utvecklare, TechSolutions AB</div>
+                            <div class="timeline-date">2022-2025</div>
+                        </div>
+                        <ul class="duties-list">
+                            <li>Ledde utvecklingen av kundportal med React och Node.js</li>
+                            <li>Implementerade säkerhetsprotokoll för känslig data</li>
+                            <li>Mentorerade juniora utvecklare i agila metoder</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2 class="section-title">Utbildning</h2>
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <div class="timeline-title">Random Gymnasium</div>
+                            <div class="timeline-date">2010-2013</div>
+                        </div>
+                        <p>Naturvetenskapsprogrammet med inriktning på biologi och miljövetenskap</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <div class="timeline-title">Random universitet</div>
+                            <div class="timeline-date">2014-2019</div>
+                        </div>
+                        <p>Kandidatexamen i datavetenskap med biologi som biämne</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2 class="section-title">Intresserad?</h2>
+                    <p>Kontakta mig gärna för ett samtal eller möte! Jag ser fram emot att diskutera hur mina tekniska färdigheter kan bidra till ert zoos arbete med djurvård, forskning och bevarande.</p>
+                    <a href="mailto:tomspanx@gmail.com" class="accent-button">Kontakta Mig</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
